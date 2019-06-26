@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "noImplicitAny": true,
+    "target": "esnext",
+    "module": "esnext",
+    "outDir": "dist",
+    "declaration": true,
+    "rootDir": "src",
+    "strict": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "removeComments": true,
+    "importHelpers": true,
+    "baseUrl": ".",
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "typings"
+    ],
+    "paths": {
+      "*": [
+        "./node_modules/*",
+        "./node_modules/@types/*",
+        "./src/types/*"
+      ],
+      "@": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
