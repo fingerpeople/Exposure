@@ -1,11 +1,11 @@
-import * as express from 'express'
+import express from 'express'
 import PublicRouter from './public'
 
 export default (App: any) => {
   const UplineRouter = express.Router()
-  App.use('/', UplineRouter) // Register Upline Router
-
   const LocalRouter = express.Router()
+
+  App.use('/', UplineRouter) // Register Upline Router
 
   LocalRouter.use(PublicRouter.path, PublicRouter.router)
 

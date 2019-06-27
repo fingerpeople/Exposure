@@ -1,5 +1,5 @@
 {
-  "name": "api-typescript-node",
+  "name": "exposure",
   "version": "1.0.0",
   "main": "dist/build.js",
   "license": "MIT",
@@ -9,8 +9,7 @@
     "start": "node dist/bundle.js",
     "dev:start": "npm run start",
     "dev": "nodemon --watch src -e ts,ejs --exec npm run dev:start",
-    "lint": "wotan -p ./tsconfig.json -c ./tslint.json",
-    "lint-fix": "eslint -c .eslintrc.js --fix --ext .js,.tsx,.ts ./src/**/*"
+    "lint": "tslint -p ./tsconfig.json -c ./tslint.json"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -33,7 +32,8 @@
     "ts-error": "^1.0.3",
     "ts-loader": "^6.0.3",
     "ts-node": "^8.3.0",
-    "tslint": "^5.17.0",
+    "tslint": "^5.18.0",
+    "tslint-config-standard": "^8.0.1",
     "tslint-webpack-plugin": "^2.0.4",
     "typescript": "^3.5.2",
     "webpack": "^4.34.0",
