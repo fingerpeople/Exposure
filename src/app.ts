@@ -1,5 +1,5 @@
 import cors from 'cors'
-import express, { NextFunction } from 'express'
+import express, { NextFunction, Request, Response } from 'express'
 import bodyParser from 'body-parser'
 import methodOverride from 'method-override'
 import { resolve } from 'path'
