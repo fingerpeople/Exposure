@@ -1,7 +1,7 @@
 import * as status from 'http-status'
 import UnprocessableEntityError from '../commons/http/UnprocessableEntityError'
 import HttpError from '../commons/http/HttpError'
-import { NextFunction } from 'express'
+import { Request, Response, NextFunction } from 'express'
 
 export default function ErrorToResponse(
   error: any,
