@@ -3,7 +3,7 @@ import UnprocessableEntityError from '../commons/http/UnprocessableEntityError'
 import HttpError from '../commons/http/HttpError'
 import { Request, Response, NextFunction } from 'express'
 
-export default function ErrorToResponse(
+export default function ErrorToResponse (
   error: any,
   request: Request,
   response: Response,

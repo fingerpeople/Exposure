@@ -6,7 +6,7 @@ export default class HttpError extends ExtendableError {
   public message!: string
   public previousError: any
 
-  constructor(message: any, httpStatus: number, previousError: any) {
+  constructor (message: any, httpStatus: number, previousError: any) {
     if (message instanceof Error) {
       previousError = message
       message = previousError.message
@@ -18,7 +18,7 @@ export default class HttpError extends ExtendableError {
     }
   }
 
-  public send(response: any) {
+  public send (response: any) {
     const body = { message: this.message }
 
     response.status(this.httpStatus)
