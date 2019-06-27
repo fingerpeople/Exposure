@@ -1,5 +1,5 @@
 {
-  "name": "api-typescript-node",
+  "name": "exposure",
   "version": "1.0.0",
   "main": "dist/build.js",
   "license": "MIT",
