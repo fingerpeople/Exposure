@@ -3,6 +3,10 @@ import HttpError from './HttpError'
 
 export default class AuthenticationError extends HttpError {
   constructor (message: any, previousError: any) {
-    super(message, status.FORBIDDEN, previousError)
+    super({
+      message,
+      httpStatus: status.FORBIDDEN,
+      previousError
+    })
   }
 }

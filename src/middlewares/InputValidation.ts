@@ -1,6 +1,6 @@
-
-import UnprocessableEntityError from '@/commons/http/UnprocessableEntityError'
 import { Request, Response, NextFunction } from 'express'
+import status from 'http-status'
+import UnprocessableEntityError from '@/commons/http/UnprocessableEntityError'
 
 export default function InputValidation (validationFactory: any) {
   return (
@@ -9,9 +9,9 @@ export default function InputValidation (validationFactory: any) {
     next: NextFunction
   ) => {
     const validation = validationFactory(request)
-
     if (validation.fails()) {
-      return next(new UnprocessableEntityError(validation.errors.all()))
+      const { previousError, httpStatus } = new UnprocessableEntityError(validation.errors.all())
+      return response.status(httpStatus || status.UNPROCESSABLE_ENTITY).json(previousError)
     }
 
     return next()

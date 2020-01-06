@@ -1,5 +1,5 @@
 import cors from 'cors'
-import express, { NextFunction, Request, Response } from 'express'
+import express, { Request, Response } from 'express'
 import bodyParser from 'body-parser'
 import methodOverride from 'method-override'
 import { resolve } from 'path'
@@ -24,11 +24,15 @@ App.use(bodyParser.json({ limit: '250kb' }))
 App.use(bodyParser.urlencoded({ extended: true }))
 
 App.use(KeyValidation())
-publicRoutes(App)
 
-App.use((request: Request, response: Response, next: NextFunction) => {
-  const error = new NotFoundError('Endpoint was not found', null)
-  return next(error)
+const UplineRouter = express.Router()
+App.use('/api', UplineRouter)
+
+publicRoutes(UplineRouter)
+
+App.use((_: Request, response: Response) => {
+  const notFoundError = new NotFoundError('Endpoint was not found', null)
+  return response.status(404).json({ message: notFoundError.message })
 })
 
 App.use(ErrorToResponse())

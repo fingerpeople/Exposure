@@ -1,8 +1,8 @@
 import status from 'http-status'
 import { Request, Response, NextFunction } from 'express'
 
-import rjson from '@/helpers/response'
-import { IResponse } from '../helpers/contracts/response.contracts'
+import { rjson } from '@/helpers/responseTemplate'
+import { IResponse } from '../helpers/contracts/responseTemplate.contracts'
 import { i18n } from '@/commons/lang'
 
 export default function KeyValidation () {
