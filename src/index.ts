@@ -1,8 +1,18 @@
-import * as express from 'express'
+import { setup } from '@/database/mongo'
 import App from './app'
 
 const PORT = process.env.PORT || 8080
 
-App.listen(PORT, () => {
-  console.log('run on port ' + PORT)
+const Database = setup(`mongodb://${process.env.MONGO_SERVER}`, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true
 })
+
+async function start () {
+  await Database.connect()
+  App.listen(PORT, () => {
+    console.log('Your application run on port ' + PORT)
+  })
+}
+
+start()

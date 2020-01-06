@@ -1,0 +1,4 @@
+{
+  "missingKeyAuthorization": "missing authorization key",
+  "keyAuthorizationNotMatch": "authorization key does not match"
+}
