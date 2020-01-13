@@ -1,47 +1,47 @@
-import { IUserService } from '../services/contracts';
-import { FastifyRequest, FastifyReply, RequestHandler } from 'fastify';
-import { IncomingMessage, ServerResponse } from 'http';
+import { FastifyReply, FastifyRequest, RequestHandler } from "fastify";
+import { IncomingMessage, ServerResponse } from "http";
+import { IUserService } from "../services/contracts";
 
 export default class UserController {
-  protected userService: IUserService
+  protected userService: IUserService;
 
   constructor(userService: IUserService) {
-    this.userService = userService
+    this.userService = userService;
   }
 
-  getUsers(): RequestHandler {
+  public getUsers(): RequestHandler {
     return async (request: FastifyRequest<IncomingMessage>, reply: FastifyReply<ServerResponse>) => {
       try {
-        const users = await this.userService.get()
-  
-        reply.send(users)
+        const users = await this.userService.get();
+
+        reply.send(users);
       } catch (error) {
         reply
           .status(500)
-          .send({ message: error.message })
+          .send({ message: error.message });
       }
-    }
+    };
   }
 
-  findUser(): RequestHandler {
+  public findUser(): RequestHandler {
     return async (request: FastifyRequest<IncomingMessage>, reply: FastifyReply<ServerResponse>) => {
       try {
-        const { id } = request.params
-        const user = await this.userService.find(id)
-  
-        reply.send(user)
+        const { id } = request.params;
+        const user = await this.userService.find(id);
+
+        reply.send(user);
       } catch (error) {
         if (error.statusCode) {
           reply
             .status(error.statusCode)
-            .send({ message: error.message })
-          return
+            .send({ message: error.message });
+          return;
         }
 
         reply
           .status(500)
-          .send({ message: error.message })
+          .send({ message: error.message });
       }
-    }
+    };
   }
 }

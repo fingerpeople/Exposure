@@ -1,18 +1,18 @@
+import { IUser } from "../models/user";
 import { IUserRepository } from "../repositories/contracts";
-import { User } from "../models/user";
 
 export default class UserService {
-  protected dbUserRepository: IUserRepository
+  protected dbUserRepository: IUserRepository;
 
   constructor(dbUserRepository: IUserRepository) {
-    this.dbUserRepository = dbUserRepository
+    this.dbUserRepository = dbUserRepository;
   }
 
-  get(): Promise<User[]> {
-    return this.dbUserRepository.get()
+  public get(): Promise<IUser[]> {
+    return this.dbUserRepository.get();
   }
 
-  find(id: Number): Promise<User> {
-    return this.dbUserRepository.find(id)
+  public find(id: number): Promise<IUser> {
+    return this.dbUserRepository.find(id);
   }
 }

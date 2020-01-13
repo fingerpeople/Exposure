@@ -1,6 +1,6 @@
-import { User } from "../models/user";
+import { IUser } from "../models/user";
 
 export interface IUserService {
-  get(): Promise<User[]>
-  find(id: Number): Promise<User>
+  get(): Promise<IUser[]>;
+  find(id: number): Promise<IUser>;
 }

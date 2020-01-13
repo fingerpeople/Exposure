@@ -1,10 +1,10 @@
-import { FastifyRequest, FastifyReply, RequestHandler } from 'fastify';
-import { IncomingMessage, ServerResponse } from 'http';
+import { FastifyReply, FastifyRequest, RequestHandler } from "fastify";
+import { IncomingMessage, ServerResponse } from "http";
 
 export default class PublicController {
-  ping(): RequestHandler {
+  public ping(): RequestHandler {
     return (request: FastifyRequest<IncomingMessage>, reply: FastifyReply<ServerResponse>) => {
-      reply.send('pong')
-    }
+      reply.send("pong");
+    };
   }
 }
