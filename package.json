@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon --watch '**/*.ts' --ignore '**/*.spec.ts' --exec 'ts-node' server.ts",
-    "compile": "tsc"
+    "compile": "tsc",
+    "lint": "tslint -c tslint.json '**/*.ts' -e 'node_modules/**/*'"
   },
   "dependencies": {
     "@types/node": "^13.1.6",
@@ -16,6 +17,7 @@
     "typescript": "^3.7.4"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "tslint": "^5.20.1"
   }
 }
