@@ -46,7 +46,7 @@ routes.forEach((route) => {
   route(server)
 })
 
-server.listen(port, (error, address) => {
+server.listen(port, '0.0.0.0', (error, address) => {
   if (error) {
     consola.error(error)
   }
